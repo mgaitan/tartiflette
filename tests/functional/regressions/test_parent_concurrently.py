@@ -2,7 +2,7 @@ import asyncio
 import random
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 from tartiflette.resolver.default import default_field_resolver
 

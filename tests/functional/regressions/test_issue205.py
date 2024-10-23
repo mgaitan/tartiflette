@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 _SDL = """
@@ -37,7 +37,7 @@ type Mutation {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Mutation.addEntry", schema_name="test_issue205")
     async def resolver_mutation_add_entry(parent, args, ctx, info):

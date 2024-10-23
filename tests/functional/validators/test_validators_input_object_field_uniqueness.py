@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def resolve_dog(*_, **__):
     return {"name": "JeanMichel"}

@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 
 

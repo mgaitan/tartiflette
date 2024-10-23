@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def _query_human_resolver(parent, *_args, **__kwargs):
     if not parent:

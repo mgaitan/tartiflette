@@ -2,7 +2,7 @@ from collections import namedtuple
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 

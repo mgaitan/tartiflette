@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.asyncio
 async def test_deprecated_on_introspection():
@@ -18,4 +18,4 @@ async def test_deprecated_on_introspection():
     await DeprecatedDirective().on_post_bake({"reason": "A"}, d2, aschema)
     assert areturn_value.isDeprecated
     assert areturn_value.deprecationReason == "A"
-    assert c.called_with(aschema)
+    c.assert_called_with(aschema)

@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.asyncio
 async def test_introspection___schema_resolver():
@@ -32,7 +32,7 @@ async def test_introspection___type_resolver():
 
     assert info.is_introspection is True
     assert atype == "Ninja"
-    assert info.schema.find_type.called_with("LOL")
+    info.schema.find_type.assert_called_with("LOL")
 
 
 def _get_parent_results_mock(typename):

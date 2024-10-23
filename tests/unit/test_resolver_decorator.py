@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver
 from tartiflette.schema.bakery import SchemaBakery
 from tartiflette.types.exceptions.tartiflette import NonAwaitableResolver

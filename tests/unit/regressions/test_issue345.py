@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette.utils.callables import is_valid_async_generator
 
 

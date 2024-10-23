@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def _resolver(*args, **kwargs):
     return {

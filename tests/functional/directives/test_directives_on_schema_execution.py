@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 
 _SDL = """
@@ -57,7 +57,7 @@ async def resolve_a(parent_result, _args, _ctx, _info):
     return str(parent_result)
 
 
-@pytest.fixture(scope="module", name="engine")
+@pytest_asyncio.fixture(loop_scope="module", scope="module", name="engine")
 async def ttftt_engine():
     Directive(
         name="a_directive", schema_name="test_directive_on_schema_execute"
@@ -119,7 +119,7 @@ async def test_directive_on_schema_execute(engine):
     } == result
 
 
-@pytest.fixture(scope="module", name="engine_extended")
+@pytest_asyncio.fixture(loop_scope="module", scope="module", name="engine_extended")
 async def ttftt_engine_extended():
     Directive(
         name="a_directive",

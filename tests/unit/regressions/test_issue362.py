@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.asyncio
 async def test_create_engine_no_loader():

@@ -3,7 +3,7 @@ import os
 from unittest.mock import Mock, patch
 
 import pytest
-
+import pytest_asyncio
 from tartiflette.language.ast import (
     ArgumentNode,
     BooleanValueNode,

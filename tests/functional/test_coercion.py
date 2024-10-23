@@ -1,6 +1,7 @@
 from collections import namedtuple
 
 import pytest
+import pytest_asyncio
 
 from tartiflette import Resolver, create_engine
 
@@ -73,7 +74,7 @@ async def func_field_advanced4_resolver(*args, **kwargs):
     return [{"data": "DataString4A"}, {"data": "DataString4B"}]
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine_1():
     return await create_engine(
         sdl="""
@@ -114,7 +115,7 @@ async def func_field_library_resolver(*args, **kwargs):
     return [Book("A new beginning", [Author("Lemony Snicket")])]
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine_2():
     return await create_engine(
         sdl="""

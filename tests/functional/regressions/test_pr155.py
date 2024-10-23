@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, TartifletteError, create_engine
 
 
@@ -20,7 +20,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.viewer", schema_name="test_pr155")
     async def resolver_query_viewer(*_, **__):

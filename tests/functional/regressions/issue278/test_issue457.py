@@ -2,7 +2,7 @@ import asyncio
 import random
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 _BOOKS = [{"id": i, "title": f"Book #{i}"} for i in range(25)]

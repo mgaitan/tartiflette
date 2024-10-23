@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 _SDL = """
@@ -19,7 +19,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.aField", schema_name="test_non_input_variable_type")
     async def resolver_query_a_field(parent, args, ctx, info):

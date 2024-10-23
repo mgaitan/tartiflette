@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 from tartiflette.resolver.default import (
     gather_arguments_coercer,
@@ -7,7 +7,7 @@ from tartiflette.resolver.default import (
 )
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     sdl = """
     type Query {

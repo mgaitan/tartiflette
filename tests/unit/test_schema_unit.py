@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, Scalar
 from tartiflette.engine import _import_builtins
 from tartiflette.schema.bakery import SchemaBakery

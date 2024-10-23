@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def resolve_query_dog(parent, args, ctx, info):
     return {"name": "Dog", "nickname": "Doggo", "barkVolume": 2}

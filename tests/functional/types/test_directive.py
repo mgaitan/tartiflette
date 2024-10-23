@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 from tartiflette.schema.registry import SchemaRegistry
 

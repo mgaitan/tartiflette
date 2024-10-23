@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 from tests.functional.utils import is_expected
 
@@ -32,7 +32,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Directive("testdire", schema_name="test_issue101")
     class Test101Directive:

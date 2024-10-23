@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 import pytest
-
+import pytest_asyncio
 from tartiflette.scalar.builtins.int import ScalarInt
 
 

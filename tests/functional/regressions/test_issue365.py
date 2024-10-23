@@ -1,13 +1,13 @@
 import logging
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 
 logger = logging.getLogger(__name__)
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     sdl = """
     directive @appendArgumentName on ARGUMENT_DEFINITION

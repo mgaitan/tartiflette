@@ -1,12 +1,12 @@
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 from tartiflette.types.exceptions.tartiflette import GraphQLSchemaError
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     schema_sdl = """
         input anInput {

@@ -1,7 +1,7 @@
 import asyncio
 
 import pytest
-
+import pytest_asyncio
 
 async def _subscription_new_dog_subscription(*_args, **_kwargs):
     counter = 0

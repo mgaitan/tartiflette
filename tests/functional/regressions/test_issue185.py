@@ -1,6 +1,7 @@
 from typing import Union
 
 import pytest
+import pytest_asyncio
 
 from tartiflette import Resolver, create_engine
 from tartiflette.constants import UNDEFINED_VALUE
@@ -37,7 +38,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Scalar("CapitalizedString", schema_name="test_issue185")
     class CapitalizedString:

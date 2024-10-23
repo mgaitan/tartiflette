@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 _SDL = """
@@ -16,7 +16,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.lists", schema_name="test_skip_include")
     async def resolve_query_lists(*_):

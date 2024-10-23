@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tests.functional.coercers.common import resolve_input_object_field
 
 

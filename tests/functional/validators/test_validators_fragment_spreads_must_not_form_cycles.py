@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.asyncio
 @pytest.mark.ttftt_engine()

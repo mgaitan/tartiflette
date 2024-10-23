@@ -3,7 +3,7 @@ import json
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, Scalar, create_engine
 
 _SDL = """
@@ -65,7 +65,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.test5", schema_name="issue223")
     async def resolver_test5(_pr, _args, _ctx, _info):

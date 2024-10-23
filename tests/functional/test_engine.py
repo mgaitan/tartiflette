@@ -1,7 +1,7 @@
 import os
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import create_engine
 from tartiflette.schema.registry import SchemaRegistry
 

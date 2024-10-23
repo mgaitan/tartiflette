@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tests.functional.reusable.pets.storage import PETS, find_object
 
 

@@ -4,7 +4,7 @@ import os
 from uuid import uuid4
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, TypeResolver, create_engine
 from tartiflette.schema.registry import SchemaRegistry
 from tartiflette.subscription.subscription import Subscription
@@ -35,13 +35,6 @@ for schema_name, sdl in _SCHEMAS.items():
     _TTFTT_ENGINES[schema_name] = asyncio.run(
         create_engine(sdl, schema_name=schema_name, **extra)
     )
-
-
-@pytest.fixture(scope="module")
-def event_loop():
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
 
 
 @pytest.fixture

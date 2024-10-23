@@ -1,11 +1,11 @@
 import os
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.test", schema_name="issue245")
     async def resolver_test(*args, **kwargs):

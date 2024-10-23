@@ -1,11 +1,11 @@
 import json
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, create_engine
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Mutation.mutateFloat", schema_name="issue270")
     async def resolver_test(pr, args, ctx, info, **kwargs):

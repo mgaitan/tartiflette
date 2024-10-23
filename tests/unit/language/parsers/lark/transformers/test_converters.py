@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 from lark import Tree
 from lark.lexer import Token
 

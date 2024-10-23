@@ -1,7 +1,7 @@
 import datetime
 
 import pytest
-
+import pytest_asyncio
 from tartiflette.scalar.builtins.date import ScalarDate
 
 

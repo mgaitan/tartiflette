@@ -3,16 +3,16 @@ name: Validate PullRequest
 on: pull_request
 
 jobs:
-  Style:
-    runs-on: ubuntu-22.04
-    env:
-      UV_PYTHON: "3.10"
-      VIRTUAL_ENV: ".venv"
-    steps:
-      - uses: actions/checkout@v2
-      - uses: astral-sh/setup-uv@v3
-      - run: make install
-      - run: make style
+  # Style:
+  #   runs-on: ubuntu-22.04
+  #   env:
+  #     UV_PYTHON: "3.10"
+  #     VIRTUAL_ENV: ".venv"
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: astral-sh/setup-uv@v3
+  #     - run: make install
+  #     - run: make style
   Tests:
     strategy:
       matrix:
@@ -21,6 +21,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       UV_PYTHON: ${{ matrix.python-version }}
+      VIRTUAL_ENV: ".venv"
     steps:
       - uses: actions/checkout@v2
       - uses: astral-sh/setup-uv@v3

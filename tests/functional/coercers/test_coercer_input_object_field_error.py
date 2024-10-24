@@ -1,6 +1,7 @@
 from typing import Any, Callable, Dict, Optional, Union
 
 import pytest
+import pytest_asyncio
 
 from tartiflette import Directive, create_engine
 
@@ -47,7 +48,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Directive("error", schema_name="test_coercer_input_object_field_error")
     class ErrorDirective:
@@ -356,4 +357,5 @@ async def ttftt_engine():
 async def test_coercer_input_object_field_error(
     ttftt_engine, query, variables, expected
 ):
-    assert await ttftt_engine.execute(query, variables=variables) == expected
+    result = await ttftt_engine.execute(query, variables=variables)
+    assert result == expected

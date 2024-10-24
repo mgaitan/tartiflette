@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, TypeResolver, create_engine
 from tartiflette.types.exceptions.tartiflette import (
     InvalidType,

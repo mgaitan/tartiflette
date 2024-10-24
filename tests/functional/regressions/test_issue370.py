@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Scalar, create_engine
 from tartiflette.scalar.builtins.string import ScalarString
 from tartiflette.types.exceptions.tartiflette import GraphQLSchemaError

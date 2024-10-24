@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 
 _SDL = """
@@ -25,7 +25,7 @@ def create_person(id, name, nickname=None, hobby=None):
     return {"id": id, "name": name, "nickname": nickname, "hobby": hobby}
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Directive("alwaysSkip", schema_name="test_directives_on_collection_error")
     class AlwaysSkipDirective:

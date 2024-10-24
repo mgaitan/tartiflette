@@ -1,6 +1,7 @@
 import asyncio
 
 import pytest
+import pytest_asyncio
 
 from tartiflette import Directive, Resolver, Subscription, create_engine
 
@@ -60,7 +61,7 @@ async def subscription_timer(parent_result, *_, **__):
         await asyncio.sleep(0.01)
 
 
-@pytest.fixture(scope="module", name="engine")
+@pytest_asyncio.fixture(loop_scope="module", scope="module", name="engine")
 async def ttftt_engine():
     Directive(
         name="a_directive", schema_name="test_directive_schema_on_subscription"

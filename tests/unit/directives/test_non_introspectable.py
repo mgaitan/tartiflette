@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.asyncio
 async def test_non_introspectable_introspection():

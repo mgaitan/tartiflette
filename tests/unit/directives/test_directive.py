@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-
+import pytest_asyncio
 
 def test_directive_implementation():
     from tartiflette.directive.directive import Directive

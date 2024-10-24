@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def _query_dog_resolver(*_args, **__kwargs):
     return {"name": "Doggo"}

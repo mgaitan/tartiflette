@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 @pytest.mark.parametrize(
     "query,expected",

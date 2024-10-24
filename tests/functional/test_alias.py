@@ -1,7 +1,7 @@
 from collections import namedtuple
 
 import pytest
-
+import pytest_asyncio
 Library = namedtuple("Library", "books,authors")
 Author = namedtuple("Author", "name")
 Book = namedtuple("Book", "title,author,price,category")

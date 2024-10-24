@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 
 async def resolver_query_viewer(*_, **__):
     return {"dog": {"name": "Dog", "owner": {"name": "Human"}}}

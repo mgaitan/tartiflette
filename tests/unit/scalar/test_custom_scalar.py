@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 
 import pytest
-
+import pytest_asyncio
 
 def test_scalar_custom_scalar_inst():
     from tartiflette.scalar.scalar import Scalar

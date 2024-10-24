@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Optional, Union
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, Scalar, create_engine
 from tartiflette.constants import UNDEFINED_VALUE
 from tartiflette.language.ast import StringValueNode
@@ -182,7 +182,7 @@ schema {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Scalar("CapitalizedString", schema_name="test_oh_god")
     class CapitalizedString:

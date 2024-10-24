@@ -1,7 +1,7 @@
 from collections import namedtuple
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver
 
 GQLTypeMock = namedtuple("GQLTypeMock", ["name", "coerce_value"])

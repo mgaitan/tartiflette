@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Any, Callable, Dict, Optional
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, create_engine
 
 _SDL = """
@@ -33,7 +33,7 @@ class SecondEnum(Enum):
 _ENUM_MAP = {"FirstEnum": FirstEnum, "SecondEnum": SecondEnum}
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Directive("actAsPyEnum", schema_name="test_issue_233")
     class ActAsPyEnumDirective:

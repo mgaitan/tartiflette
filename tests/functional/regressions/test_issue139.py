@@ -3,7 +3,7 @@ import asyncio
 from typing import Any, Callable, Dict, Optional, Union
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Subscription, create_engine
 from tartiflette.types.exceptions.tartiflette import MultipleException
 
@@ -36,7 +36,7 @@ type Subscription {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Directive("validateMaxLength", schema_name="test_issue139")
     class ValidateMaxLengthDirective:

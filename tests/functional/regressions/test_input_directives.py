@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Optional, Union
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Directive, Resolver, Scalar, create_engine
 from tartiflette.constants import UNDEFINED_VALUE
 from tartiflette.language.ast import StringValueNode
@@ -63,7 +63,7 @@ type Query {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Resolver("Query.channelz", schema_name="test_input_directives")
     @Resolver("Query.channels", schema_name="test_input_directives")

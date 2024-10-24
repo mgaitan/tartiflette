@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette.schema.registry import SchemaRegistry
 
 

@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import create_engine
 
 _SDL = """
@@ -47,7 +47,7 @@ input EatSomething {
 """
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     return await create_engine(sdl=_SDL, schema_name="test_issue92")
 

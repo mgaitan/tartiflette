@@ -1,7 +1,7 @@
 import asyncio
 
 import pytest
-
+import pytest_asyncio
 from tartiflette import Resolver, Subscription, create_engine
 from tartiflette.types.exceptions.tartiflette import (
     NonAsyncGeneratorSubscription,
@@ -33,7 +33,7 @@ _SEARCHS = [
 ]
 
 
-@pytest.fixture(scope="module")
+@pytest_asyncio.fixture(loop_scope="module", scope="module")
 async def ttftt_engine():
     @Subscription("MySubscription.newSearch", schema_name="test_subscribe")
     async def subscription_new_search(*_, **__):

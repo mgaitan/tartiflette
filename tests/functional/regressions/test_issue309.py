@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette import Engine, Resolver, create_engine
 
 _SDL = """

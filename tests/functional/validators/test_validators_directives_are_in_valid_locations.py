@@ -1,9 +1,10 @@
 import pytest
+import pytest_asyncio
 
 from tartiflette import create_engine
 
 
-@pytest.fixture(scope="module", name="ttftt_engine")
+@pytest_asyncio.fixture(loop_scope="module", scope="module", name="ttftt_engine")
 async def ttftt_engine_fixture():
     SDL = """
 directive @queryDirective on QUERY

@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 _TYPE_INTROSPECTION_QUERY = """
 {{
   __typename

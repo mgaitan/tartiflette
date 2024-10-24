@@ -1,5 +1,5 @@
 import pytest
-
+import pytest_asyncio
 from tartiflette.language.parsers.lark.transformers.node_transformer import (
     SchemaNode,
 )

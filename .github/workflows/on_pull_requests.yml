@@ -3,18 +3,14 @@ name: Validate PullRequest
 on: pull_request
 
 jobs:
-  # Style:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: git submodule update --init
-  #     - name: Setup Python 3.10
-  #       uses: actions/setup-python@v2
-  #       with:
-  #         python-version: "3.10"
-  #     - name: Install Python dependencies
-  #       run: pip install -e .[test]
-  #     - run: make style
+  Style:
+    runs-on: ubuntu-22.04
+    env:
+      UV_PYTHON: "3.10"
+    steps:
+      - uses: astral-sh/setup-uv
+      - run: make install
+      - run: make style
   Tests:
     strategy:
       matrix:

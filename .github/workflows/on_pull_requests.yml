@@ -22,11 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: astral-sh/setup-uv@v3
-      - run: git submodule update --init
+      - run: |
+          git submodule update --init
+          uv venv --python ${{ matrix.python-version }}
+          . .venv/bin/activate
+          uv pip install -e .[test]
+          echo "VIRTUAL_ENV=.venv" | tee -a $GITHUB_ENV
+          echo "$PWD/.venv/bin" | tee -a $GITHUB_PATH
       - name: Unit Tests
-        run: uv run --with-editable .[test] --python=${{ matrix.python-version }} pytest -s tests/unit
+        run: pytest -s tests/unit
       - name: functional tests
-        run: uv run --with-editable .[test] --python=${{ matrix.python-version }} pytest -n auto tests/functional
+        run: pytest -n auto tests/functional
   # SonarCloud:
   #   runs-on: ubuntu-20.04
   #   steps:

@@ -19,17 +19,14 @@ jobs:
         os: [ ubuntu-latest, macos-11 ]
         python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12" ]
     runs-on: ${{ matrix.os }}
-    env:
-      UV_PYTHON: ${{ matrix.python-version }}
-      VIRTUAL_ENV: ".venv"
     steps:
       - uses: actions/checkout@v2
       - uses: astral-sh/setup-uv@v3
-      - run: make install
-      - name: Functional Tests
-        run: make test-functional
+      - run: git submodule update --init
       - name: Unit Tests
-        run: make test-unit
+        run: uv run --with-editable .[test] --python=${{ matrix.python-version }} pytest -s tests/unit
+      - name: functional tests
+        run: uv run --with-editable .[test] --python=${{ matrix.python-version }} pytest -n auto tests/functional
   # SonarCloud:
   #   runs-on: ubuntu-20.04
   #   steps:

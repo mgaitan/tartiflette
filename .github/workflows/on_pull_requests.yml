@@ -8,7 +8,7 @@ jobs:
     env:
       UV_PYTHON: "3.10"
     steps:
-      - uses: astral-sh/setup-uv
+      - uses: astral-sh/setup-uv@v3
       - run: make install
       - run: make style
   Tests:
@@ -21,7 +21,7 @@ jobs:
       UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v2
-      - uses: astral-sh/setup-uv
+      - uses: astral-sh/setup-uv@v3
       - run: make install
       - name: Functional Tests
         run: make test-functional

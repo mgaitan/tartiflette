@@ -2,9 +2,14 @@
 init:
 	git submodule update --init
 
+
 .PHONY: install
 install: init
-	pip install -e .[test]
+	@if command -v uv >/dev/null 2>&1; then \
+		uv pip install -e .[test]; \
+	else \
+		pip install -e .[test]; \
+	fi
 
 .PHONY: format-import
 format-import:
